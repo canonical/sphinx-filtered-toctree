@@ -27,5 +27,5 @@ html_title = project
 html_theme = "furo"
 
 extensions = [
-    "hello_ext",
+    "filtered_toctree",
 ]

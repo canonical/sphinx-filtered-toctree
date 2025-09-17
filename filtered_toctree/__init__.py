@@ -18,7 +18,7 @@
 
 from sphinx.util.typing import ExtensionMetadata
 from sphinx.application import Sphinx
-from .hello import HelloDirective
+from filtered_toctree.directive import FilteredTocTree
 
 try:
     from ._version import __version__
@@ -32,17 +32,10 @@ except ImportError:  # pragma: no cover
 
 
 def setup(app: Sphinx) -> ExtensionMetadata:
-    """Add the extension's directive to Sphinx.
-
-    :returns: ExtensionMetadata
-    """
-    app.add_directive("hello", HelloDirective)
-
-    return {
-        "version": __version__,
-        "parallel_read_safe": True,
-        "parallel_write_safe": True,
-    }
+    """Add the extension to the Sphinx application instance."""
+    app.add_config_value("toc_filter_exclude", [], "html")
+    app.add_directive("filtered-toctree", FilteredTocTree)
+    return {"version": "1.0.0", "parallel_read_safe": True, "parallel_write_safe": True}
 
 
 __all__ = ["__version__", "setup"]
