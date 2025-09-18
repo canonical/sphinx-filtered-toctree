@@ -29,3 +29,5 @@ html_theme = "furo"
 extensions = [
     "filtered_toctree",
 ]
+
+toc_filter_exclude = ["exclude"]

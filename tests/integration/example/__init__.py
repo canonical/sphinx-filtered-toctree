@@ -1,4 +1,4 @@
-# This file is part of sphinx-ext-template.
+# This file is part of filtered-toctree.
 #
 # Copyright 2025 Canonical Ltd.
 #

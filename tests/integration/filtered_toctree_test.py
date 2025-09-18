@@ -17,6 +17,7 @@
 import shutil
 import subprocess
 from pathlib import Path
+from typing import cast
 
 import bs4
 import pytest
@@ -50,8 +51,13 @@ def test_hello_integration(example_project):
 
     shutil.rmtree(example_project)  # Delete copied source
 
-    ext_text = soup.find("p")
-    if ext_text:
-        assert getattr(ext_text, "text", None) == "Hello, world!"
-    else:
-        pytest.fail("Directive output not found in document.")
+    toctree = soup.find("div", {"class": "toctree-wrapper compound"})
+    assert toctree
+
+    toctree_entries = toctree.find_next("ul")
+    assert toctree_entries
+
+    # Assert that the prefixed entries are filtered out of the rendered ToC
+    assert (
+        len(cast(bs4.Tag, toctree_entries).find_all("li", {"class": "toctree-l1"})) == 1
+    )
