@@ -38,6 +38,7 @@ class FilteredTocTree(TocTree):
         for e in entries:
             m = FILTER_PATTERN.match(e)
 
+            filt: str = ""
             if m is not None:
                 # The filter is in different matches depending on whether
                 # we override the title and where we put the filter
@@ -45,11 +46,9 @@ class FilteredTocTree(TocTree):
                     filt = m.groups()[0]
                 elif e.endswith(">"):
                     filt = m.groups()[1]
-                else:
-                    filt = m.groups()[0]
 
                 # Keep the entries that are not supposed to be excluded
-                if filt not in excl:
+                if filt and filt not in excl:
                     filtered.append(e.replace(":" + filt + ":", ""))
             else:
                 filtered.append(e)

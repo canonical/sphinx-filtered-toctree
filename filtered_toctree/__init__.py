@@ -26,7 +26,7 @@ except ImportError:  # pragma: no cover
     from importlib.metadata import version, PackageNotFoundError
 
     try:
-        __version__ = version("hello_ext")
+        __version__ = version("filtered_toctree")
     except PackageNotFoundError:
         __version__ = "dev"
 

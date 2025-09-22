@@ -28,7 +28,7 @@ the `toctree` directive.
 
 ## Project setup
 
-hello-ext is published on PyPI and can be installed with:
+filtered-toctree is published on PyPI and can be installed with:
 
 ```bash
 pip install filtered-toctree
@@ -48,7 +48,7 @@ extensions = [
 You can report any issues or bugs on the project's [GitHub
 repository](https://github.com/canonical/filtered-toctree).
 
-hello-ext is covered by the [Ubuntu Code of
+filtered-toctree is covered by the [Ubuntu Code of
 Conduct](https://ubuntu.com/community/ethos/code-of-conduct).
 
 ## License and copyright
