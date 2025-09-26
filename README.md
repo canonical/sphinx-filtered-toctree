@@ -1,55 +1,58 @@
-# hello-ext
+# filtered-toctree
 
-<!-- Answer elevator-pitch questions about the extension – What is it? What does it do? What
-essential problem does it solve? -->
-
-hello-ext adds a Sphinx directive that generates a custom greeting.
+filtered-toctree allows you to filter pages out of your documentation's navigation
+by prefixing ToC entries with configurable tags.
 
 ## Basic usage
 
-<!-- Provide a few examples of the extension's most common use cases. Remember the Pareto
-principle! -->
-
-To generate a greeting, add the `hello` directive to your document:
+First, list the tags you wish to exclude with `toc_filter_exclude` in your `conf.py`
+file:
 
 ```
-.. hello:: world!
+toc_filter_exclude = ["exclude", "hidden"]
 ```
+
+To filter entries out of your documentation's navigation, prefix either the document's
+label or target with one of the tags defined in `toc_filter_exclude`:
+
+```
+.. filtered-toctree::
+
+    :exclude:how-to-code
+    Unit testing <:hidden:unit-testing>
+
+```
+
+Aside from this added functionality, `filtered-toctree` behaves exactly the same as
+the `toctree` directive.
 
 ## Project setup
 
-<!-- Provide the simplest way to install the extension. In most cases, this will
-be via `pip`. -->
-
-hello-ext is published on PyPI and can be installed with:
+filtered-toctree is published on PyPI and can be installed with:
 
 ```bash
-pip install hello-ext
+pip install filtered-toctree
 ```
 
-After adding hello-ext to your Python project, update your Sphinx's conf.py file to
-include hello-ext as one of its extensions:
+After adding filtered-toctree to your Python project, update your Sphinx's conf.py file
+to include filtered-toctree as one of its extensions:
 
 ```python
 extensions = [
-    "hello_ext"
+    "filtered_toctree"
 ]
 ```
 
 ## Community and support
 
-<!-- This is boilerplate. Replace the extension name and GitHub link. -->
-
 You can report any issues or bugs on the project's [GitHub
-repository](https://github.com/canonical/sphinx-ext-template).
+repository](https://github.com/canonical/filtered-toctree).
 
-hello-ext is covered by the [Ubuntu Code of
+filtered-toctree is covered by the [Ubuntu Code of
 Conduct](https://ubuntu.com/community/ethos/code-of-conduct).
 
 ## License and copyright
 
-<!-- Replace the extension name and, if necessary, the extension's license. -->
-
-hello-ext is released under the [GPL-3.0 license](LICENSE).
+filtered-toctree is released under the [GPL-3.0 license](LICENSE).
 
 © 2025 Canonical Ltd.

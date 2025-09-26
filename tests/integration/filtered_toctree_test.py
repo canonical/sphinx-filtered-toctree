@@ -1,22 +1,23 @@
-# This file is part of sphinx-ext-template.
+# This file is part of filtered-toctree.
 #
 # Copyright 2025 Canonical Ltd.
 #
 # This program is free software: you can redistribute it and/or modify it under the
-# terms of the GNU General Public License version 3, as published by the Free
-# Software Foundation.
+# terms of the GNU General Public License version 3, as published by the Free Software
+# Foundation.
 #
 # This program is distributed in the hope that it will be useful, but WITHOUT ANY
 # WARRANTY; without even the implied warranties of MERCHANTABILITY, SATISFACTORY
-# QUALITY, or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public
-# License for more details.
+# QUALITY, or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+# more details.
 #
-# You should have received a copy of the GNU General Public License along with
-# this program.  If not, see <http://www.gnu.org/licenses/>.
+# You should have received a copy of the GNU General Public License along with this
+# program.  If not, see <http://www.gnu.org/licenses/>.
 
 import shutil
 import subprocess
 from pathlib import Path
+from typing import cast
 
 import bs4
 import pytest
@@ -50,8 +51,13 @@ def test_hello_integration(example_project):
 
     shutil.rmtree(example_project)  # Delete copied source
 
-    ext_text = soup.find("p")
-    if ext_text:
-        assert getattr(ext_text, "text", None) == "Hello, world!"
-    else:
-        pytest.fail("Directive output not found in document.")
+    toctree = soup.find("div", {"class": "toctree-wrapper compound"})
+    assert toctree
+
+    toctree_entries = toctree.find_next("ul")
+    assert toctree_entries
+
+    # Assert that the prefixed entries are filtered out of the rendered ToC
+    assert (
+        len(cast(bs4.Tag, toctree_entries).find_all("li", {"class": "toctree-l1"})) == 1
+    )
