@@ -1,6 +1,6 @@
-# filtered-toctree
+# sphinx-filtered-toctree
 
-filtered-toctree allows you to filter pages out of your documentation's navigation
+sphinx-filtered-toctree allows you to filter pages out of your documentation's navigation
 by prefixing ToC entries with configurable tags.
 
 ## Basic usage
@@ -28,10 +28,10 @@ the `toctree` directive.
 
 ## Project setup
 
-filtered-toctree is published on PyPI and can be installed with:
+sphinx-filtered-toctree is published on PyPI and can be installed with:
 
 ```bash
-pip install filtered-toctree
+pip install sphinx-filtered-toctree
 ```
 
 After adding filtered-toctree to your Python project, update your Sphinx's conf.py file
@@ -39,20 +39,20 @@ to include filtered-toctree as one of its extensions:
 
 ```python
 extensions = [
-    "filtered_toctree"
+    "sphinx_filtered_toctree"
 ]
 ```
 
 ## Community and support
 
 You can report any issues or bugs on the project's [GitHub
-repository](https://github.com/canonical/filtered-toctree).
+repository](https://github.com/canonical/sphinx-filtered-toctree).
 
 filtered-toctree is covered by the [Ubuntu Code of
 Conduct](https://ubuntu.com/community/ethos/code-of-conduct).
 
 ## License and copyright
 
-filtered-toctree is released under the [GPL-3.0 license](LICENSE).
+sphinx-filtered-toctree is released under the [GPL-3.0 license](LICENSE).
 
 © 2025 Canonical Ltd.

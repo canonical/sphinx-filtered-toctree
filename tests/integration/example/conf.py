@@ -27,7 +27,7 @@ html_title = project
 html_theme = "furo"
 
 extensions = [
-    "filtered_toctree",
+    "sphinx_filtered_toctree",
 ]
 
 toc_filter_exclude = ["exclude"]

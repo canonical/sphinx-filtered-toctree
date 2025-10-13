@@ -18,7 +18,7 @@
 
 from sphinx.util.typing import ExtensionMetadata
 from sphinx.application import Sphinx
-from filtered_toctree.directive import FilteredTocTree
+from sphinx_filtered_toctree.directive import FilteredTocTree
 
 try:
     from ._version import __version__
@@ -26,7 +26,7 @@ except ImportError:  # pragma: no cover
     from importlib.metadata import version, PackageNotFoundError
 
     try:
-        __version__ = version("filtered_toctree")
+        __version__ = version("sphinx-filtered-toctree")
     except PackageNotFoundError:
         __version__ = "dev"
 

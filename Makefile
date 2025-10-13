@@ -1,4 +1,4 @@
-PROJECT=filtered_toctree
+PROJECT=sphinx_filtered_toctree
 UV_TEST_GROUPS := "--group=dev"
 UV_LINT_GROUPS := "--group=lint" "--group=types"
 
