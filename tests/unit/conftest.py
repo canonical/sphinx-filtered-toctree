@@ -22,9 +22,9 @@ from docutils.parsers.rst import Parser
 from docutils.parsers.rst.states import RSTState, RSTStateMachine
 from docutils.statemachine import StringList
 from docutils.utils import new_document
-from sphinx_filtered_toctree.directive import FilteredTocTree
 from sphinx.environment import BuildEnvironment
 from sphinx.testing.util import SphinxTestApp
+from sphinx_filtered_toctree.directive import FilteredTocTree
 from typing_extensions import override
 
 
