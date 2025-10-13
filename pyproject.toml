@@ -1,5 +1,5 @@
 [project]
-name = "filtered-toctree"
+name = "sphinx-filtered-toctree"
 description = "Sphinx toctree that filters out entries by prefix."
 dynamic = ["version", "readme"]
 requires-python = ">=3.10"

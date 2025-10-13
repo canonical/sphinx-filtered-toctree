@@ -232,7 +232,7 @@ wheels = [
 ]
 
 [[package]]
-name = "filtered-toctree"
+name = "sphinx-filtered-toctree"
 source = { editable = "." }
 dependencies = [
     { name = "docutils" },
