@@ -53,7 +53,7 @@ def fake_toctree(request: pytest.FixtureRequest, tmp_path) -> FakeTocTree:
 def mock_state(tmp_path) -> tuple[RSTState, RSTStateMachine]:
     state_machine = RSTStateMachine([], "")
     state = RSTState(state_machine)
-    document = new_document("docname", settings=get_default_settings(Parser))
+    document = new_document("docname", settings=get_default_settings(Parser()))
 
     src_dir = tmp_path / "src"
 
